@@ -2,9 +2,9 @@ function mu = first_moment(S)
     if iscolumn(S)
         mu = sum(S)/length(S);
     else
-        mu = zeros(length(S),1);
+        mu = zeros(1, width(S));
         for n = 1:length(mu)
-            mu(n) = sum(cell2mat(S(n)))/length(cell2mat(S(n)));
+            mu(n) = sum(S{:,n})/length(S{:,n});
         end
     end
 end
