@@ -1,10 +1,6 @@
 function sigma_2 = second_moment(S)
     if iscolumn(S)
-        rms = zeros(length(S),1);
-        for n = 1:length(S)
-            rms(n) = (S(n)-first_moment(S))^2;
-        end
-        sigma_2 = sum(rms)/(length(S)-1);
+        sigma_2 = sum((S-first_moment(S)).^2)/(length(S)-1);
     else
         sigma_2 = zeros(1, width(S));
         for n = 1:length(sigma_2)
